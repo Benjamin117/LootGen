@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>DnD Loot Generator</title>
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
+    <script src="js/lib/d3.v3.js"></script>
+   <!--<script src="js/lib/tether.min.js"></script>-->
+    <!--<link rel="stylesheet" href="css/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <!-- <script type="text/javascript" src="js/directives.js"></script> -->
+</head>
+
+<body ng-app="myApp" ng-controller="AppWelcomeController">
+<div style="padding:30px">
+<h3 class="page-title">Dungeons and Dragons</h3>
+<div style="height: 50px"><div class="bd-example" data-example-id="">
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-secondary" ng-click="roll()">Roll</button>
+
+<div style="float: left;padding-right: 10px" class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{diff}}
+  </button>
+  <div  class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" ng-click="diff='Less than easy'" href="#">Less than easy</a>
+    <a class="dropdown-item" ng-click="diff='Easy'" href="#">Easy</a>
+    <a class="dropdown-item" ng-click="diff='Medium'" href="#">Medium</a>
+    <a class="dropdown-item" ng-click="diff='Hard'" href="#">Hard</a>
+    <a class="dropdown-item" ng-click="diff='Deadly'" href="#">Deadly</a>
+  </div>
+</div>
+<button ng-if="propclass=='Legendary'" type="button" class="btn btn-secondary" ng-click="decrypt()">Decrypt</button>
+
+</div></div>
+<!-- ng repeat with animation -->
+    <div ng-if="result" class="tile">
+    <div >
+        <span class="item-header"><h3 ng-class="perkclass" style="float: left;padding: 10px;"> {{result.drawname}} </h3><h4 ng-class="propclass" style="float: right;display: inline-block;color:gray;padding: 10px ">{{result['Weapon Family']}}</h4></span></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th ng-class="propclass">Damage</th>
+                    <th ng-class="propclass">Weight</th>
+                    <th ng-class="propclass">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-info">
+                    <td ng-class="propclass">{{result['Base Damage']}}</td>
+                    <td ng-class="propclass">{{result.Weight}}</td>
+                    <td ng-class="propclass">{{result.totalvalue}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+         <table><tr><td style="width:50%;vertical-align: top;
+  text-align: left;">
+        <div  ng-class="propclass" style="padding: 10px; margin-right: 0px">
+        <p><h5 style="font-weight:bold;">Properties:</h5>{{result['Base Properties']}}</p>
+            </div>
+        </td><td style="vertical-align: top;
+  text-align: left;"><div ng-if="isperk"  ng-class="propclass" style="padding: 10px">
+        <p><h5 style="font-weight:bold;">Perks:</h5><div style="color:grey">{{pperkname}}</div>{{result.pperkeffect}}</p><p ><div ng-if="secperk" style="color:grey">{{sperkname}}</div>{{result.sperkeffect}}</p>
+            </div></td></tr></table>
+            <div ng-if="specialprop" ng-class="propclass" style="padding: 10px">
+        <p><h5 style="font-weight:bold;">Special Properties:</h5><div style="">{{result['Special Properties']}}</div></p>
+            </div>
+        
+    </div>
+    </div>
+   
+</body>
+
+</html>

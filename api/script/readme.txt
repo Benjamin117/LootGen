@@ -1,0 +1,1 @@
+these scripts take the excel files with the tables and turn them into JSON for the API to read

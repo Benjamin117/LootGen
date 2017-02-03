@@ -1,0 +1,42 @@
+[{
+    "lesseasy": {
+        "none": 0.8,
+        "Common perks": 0.11,
+        "Uncommon perks": 0.05,
+        "Rare perks": 0.03,
+        "Very rare perks": 0.01,
+        "Legendary perks": 0.0
+    },
+    "easy": {
+        "none": 0.6,
+        "Common perks": 0.3,
+        "Uncommon perks": 0.05,
+        "Rare perks": 0.03,
+        "Very rare perks": 0.017,
+        "Legendary perks": 0.003
+    },
+    "medium": {
+        "none": 0.4,
+        "Common perks": 0.35,
+        "Uncommon perks": 0.15,
+        "Rare perks": 0.07,
+        "Very rare perks": 0.025,
+        "Legendary perks": 0.005
+    },
+    "hard": {
+        "none": 0.25,
+        "Common perks": 0.3,
+        "Uncommon perks": 0.25,
+        "Rare perks": 0.15,
+        "Very rare perks": 0.035,
+        "Legendary perks": 0.015
+    },
+    "deadly": {
+        "none": 0.05,
+        "Common perks": 0.25,
+        "Uncommon perks": 0.35,
+        "Rare perks": 0.2,
+        "Very rare perks": 0.1,
+        "Legendary perks": 0.05
+    }
+}]

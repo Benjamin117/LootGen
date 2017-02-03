@@ -1,0 +1,79 @@
+.tile{
+    border: 1px solid #e0ded7;
+    margin-top: 10px;
+    
+    
+    width: 100%;
+
+}
+@font-face {
+    font-family: iokharic;
+    src: url(fonts/pixel-sagas_iokharic/IokharicBold.otf);
+}
+@font-face {
+    font-family: dalelands;
+    src: url(fonts/pixel-sagas_dalelands/DalelandsUncial.otf);
+}
+
+.animate-enter, 
+.animate-leave
+{ 
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space:nowrap;
+} 
+ 
+.animate-leave.animate-leave-active,
+.animate-enter {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+}
+.page-title{
+    font-family: dalelands;
+    font-size: xx-large;
+    padding-bottom: 30px;
+}
+.item-header{
+    color:#E63946;
+    opacity: 0.4;
+    height:40px;
+}
+.none{
+        color: #000000;
+    }
+.Common{
+        color: #58A046;
+
+    }
+.Uncommon{
+        color: #3C39CD;
+    }
+.Rare{
+    	color:#E63946;
+    }
+.Vrare{
+		color:#7F0799;
+}
+.Legendary{
+		color:#F5AB35;
+		font-family: iokharic ;
+
+}
+.Legendary-decrypted{
+        color:#F5AB35;
+         
+
+}
+.Legendary-decrypted-prop{
+        color:#000000;
+         
+
+}    	
