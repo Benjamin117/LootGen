@@ -1,5 +1,5 @@
 server {
-    listen 8080;
+    listen 81;
     server_name server_domain_or_IP;
 
     location / {

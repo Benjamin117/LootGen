@@ -5,9 +5,9 @@ After=network.target
 [Service]
 User=root
 Group=www-data
-WorkingDirectory=/home/LootGen
+WorkingDirectory=/home/LootGen/api
 
-ExecStart=/root/uwsgi/uwsgi --ini LootGen.ini
+ExecStart=uwsgi --ini LootGen.ini
 
 [Install]
 WantedBy=multi-user.target
