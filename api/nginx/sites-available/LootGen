@@ -1,6 +1,6 @@
 server {
     listen 81;
-    server_name server_domain_or_IP;
+    server_name 127.0.0.127:8080;
 
     location / {
         include uwsgi_params;
