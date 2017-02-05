@@ -1,9 +1,9 @@
 server {
     listen 81;
-    server_name 127.0.0.127:8080;
+    server_name _;
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/home/LootGen/LootGen.sock;
+        uwsgi_pass unix:/home/LootGen/api/LootGen.sock;
     }
 }
