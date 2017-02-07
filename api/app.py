@@ -7,7 +7,7 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:8000"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route("/roll",methods=['GET'])
 def get_loot():
 

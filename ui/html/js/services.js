@@ -13,7 +13,7 @@ angular.module('myApp.services', [])
      
       return $http({
         method: 'GET', 
-        url: 'http://127.0.0.1:9000/roll',
+        url: 'http://192.168.1.2:81/roll',
         params: {difficulty: difficulty,
         		item_count:item_count}
       })
