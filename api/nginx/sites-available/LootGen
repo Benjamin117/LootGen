@@ -4,6 +4,6 @@ server {
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/home/pi/docker/LootGen/api/LootGen.sock;
+        uwsgi_pass unix:/app/LootGen/api/LootGen.sock;
     }
 }

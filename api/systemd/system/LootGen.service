@@ -3,11 +3,11 @@ Description=uWSGI instance to serve LootGen
 After=network.target
 
 [Service]
-User=pi
+User=root
 Group=www-data
-WorkingDirectory=/home/pi/docker/LootGen/api
-Environment="PATH=/home/pi/docker/LootGen/apivenv/bin"
-ExecStart=/home/pi/docker/LootGen/apivenv/bin/uwsgi --ini LootGen.ini
+WorkingDirectory=/app/LootGen/api
+Environment="PATH=/app/LootGen/apivenv/bin"
+ExecStart=/app/LootGen/apivenv/bin/uwsgi --ini LootGen.ini
 
 [Install]
 WantedBy=multi-user.target
