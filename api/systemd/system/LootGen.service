@@ -6,8 +6,8 @@ After=network.target
 User=pi
 Group=www-data
 WorkingDirectory=/home/pi/docker/LootGen/api
-
-ExecStart=uwsgi --ini LootGen.ini
+Environment="PATH=/home/pi/docker/LootGen/apivenv/bin"
+ExecStart=/home/pi/docker/LootGen/apivenv/bin/uwsgi --ini LootGen.ini
 
 [Install]
 WantedBy=multi-user.target
