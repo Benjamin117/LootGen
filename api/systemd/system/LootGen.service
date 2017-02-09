@@ -6,8 +6,8 @@ After=network.target
 User=root
 Group=www-data
 WorkingDirectory=/app/LootGen/api
-Environment="PATH=/app/LootGen/apivenv/bin"
-ExecStart=/app/LootGen/apivenv/bin/uwsgi --ini LootGen.ini
+
+ExecStart=/bin/uwsgi --ini LootGen.ini
 
 [Install]
 WantedBy=multi-user.target
