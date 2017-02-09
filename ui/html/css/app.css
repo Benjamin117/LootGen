@@ -50,25 +50,25 @@
         color: #000000;
     }
 .Common{
-        color: #58A046;
+        color: #8D8365;
 
     }
 .Uncommon{
-        color: #3C39CD;
+        color: #12C464;
     }
 .Rare{
-    	color:#E63946;
+      color:#2C94E2;
     }
 .Vrare{
-		color:#7F0799;
+    color:#221FC1;
 }
 .Legendary{
-		color:#F5AB35;
-		font-family: iokharic ;
+    color:#EC6636;
+    font-family: iokharic ;
 
 }
 .Legendary-decrypted{
-        color:#F5AB35;
+        color:#EC6636;
          
 
 }
@@ -76,4 +76,4 @@
         color:#000000;
          
 
-}    	
+}
