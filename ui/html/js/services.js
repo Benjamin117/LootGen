@@ -15,7 +15,7 @@ angular.module('myApp.services', [])
      
       return $http({
         method: 'GET', 
-        url: 'http://'+url+port+'/roll',
+        url: url+port+'/roll',
         params: {difficulty: difficulty,
         		item_count:item_count}
       })
