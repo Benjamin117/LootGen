@@ -7,8 +7,8 @@ angular.module('myApp.services', [])
 .factory('lootGenAPIservice', function($http) {
     
     var lootGenAPI = {};
-    var loc = window.location.href
-    var url = loc.substring(0, loc.length - 1);
+    
+    var url = 'http://'+window.location.host;
     var port = ':33002';
     console.log(url+port);
     lootGenAPI.rollforLoot = function(difficulty,item_count) {
