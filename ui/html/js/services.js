@@ -1,4 +1,3 @@
-
 'use strict'
 
 /* Services */
@@ -8,8 +7,8 @@ angular.module('myApp.services', [])
 .factory('lootGenAPIservice', function($http) {
     
     var lootGenAPI = {};
-
-    var url = 'http://'+window.location.host;
+    var loc = window.location.href
+    var url = loc.substring(0, loc.length - 1);
     var port = ':33002';
     console.log(url+port);
     lootGenAPI.rollforLoot = function(difficulty,item_count) {
@@ -18,7 +17,7 @@ angular.module('myApp.services', [])
         method: 'GET', 
         url: url+port+'/roll',
         params: {difficulty: difficulty,
-        		item_count:item_count}
+            item_count:item_count}
       })
     }
 
