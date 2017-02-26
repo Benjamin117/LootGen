@@ -4,7 +4,7 @@ RUN pip3 install flask flask-cors uwsgi
 
 
 #clone repo
-RUN git clone https://github.com/Benjamin117/LootGen.git /home/LootGen
+RUN git clone https://github.com/Benjamin117/LootGen.git /home/LootGen && cd /home/LootGen && git checkout  28823a9
 
 RUN cp  /home/LootGen/api/nginx/sites-available/LootGen /etc/nginx/sites-availa$
 RUN rm /etc/nginx/sites-available/default
