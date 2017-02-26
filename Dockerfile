@@ -9,6 +9,8 @@ RUN git clone https://github.com/Benjamin117/LootGen.git /home/LootGen
 RUN cp  /home/LootGen/api/nginx/sites-available/LootGen /etc/nginx/sites-availa$
 RUN rm /etc/nginx/sites-available/default
 RUN cp /home/LootGen/api/nginx/sites-available/default /etc/nginx/sites-availab$
+RUN rm /etc/nginx/nginx.conf
+RUN cp  /home/LootGen/api/nginx/nginx.conf /etc/nginx/
 
 RUN ln -s /etc/nginx/sites-available/LootGen /etc/nginx/sites-enabled
 
