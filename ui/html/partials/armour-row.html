@@ -1,18 +1,17 @@
-    
     <div ng-if="result" class="tile">
     <div >
-        <span class="item-header"><h3 ng-class="perkclass" style="float: left;padding: 10px;"> {{result.drawname}} </h3><h4 ng-class="propclass" style="float: right;display: inline-block;color:gray;padding: 10px ">{{result['Weapon Family']}}</h4></span></div>
+        <span class="item-header"><h3 ng-class="perkclass" style="float: left;padding: 10px;"> {{result.drawname}} </h3><h4 ng-class="propclass" style="float: right;display: inline-block;color:gray;padding: 10px ">{{result['Armour Class']}}</h4></span></div>
         <table class="table">
             <thead>
                 <tr>
-                    <th ng-class="propclass">Damage</th>
+                    <th ng-class="propclass">AC</th>
                     <th ng-class="propclass">Weight</th>
                     <th ng-class="propclass">Value</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-info">
-                    <td ng-class="propclass">{{result['Base Damage']}}</td>
+                    <td ng-class="propclass">+{{result.AC}}</td>
                     <td ng-class="propclass">{{result.Weight}}</td>
                     <td ng-class="propclass">{{result.totalvalue}}</td>
                 </tr>
@@ -22,7 +21,7 @@
          <table><tr><td style="width:50%;vertical-align: top;
   text-align: left;">
         <div  ng-class="propclass" style="padding: 10px; margin-right: 0px">
-        <p><h5 style="font-weight:bold;">Properties:</h5>{{result['Base Properties']}}</p>
+        <p><h5 style="font-weight:bold;">Properties:</h5>{{result['Properties']}}</p>
             </div>
         </td><td style="vertical-align: top;
   text-align: left;"><div ng-if="isperk"  ng-class="propclass" style="padding: 10px">

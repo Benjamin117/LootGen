@@ -5,18 +5,14 @@
 
 angular.module('myApp.controllers', [])
 
-.controller('AppWelcomeController', function($scope, lootGenAPIservice) {
+.controller('LootGenController', function($scope, lootGenAPIservice) {
 
     $scope.diff='Difficulty'; //default
+    $scope.rolltype='Roll Type'; //default
    var diff= null;
 	$scope.roll=function(){
-	if($scope.diff=='Less than easy'){diff='lesseasy'};
-	if($scope.diff=='Easy'){diff='easy'};
-	if($scope.diff=='Medium'){diff='medium'};
-	if($scope.diff=='Hard'){diff='hard'}; 
-	if($scope.diff=='Deadly'){diff='deadly'};
-	if($scope.diff=='Difficulty'){diff='easy'};                
-		lootGenAPIservice.rollforLoot(diff,1).success(function (response) {
+	               
+		lootGenAPIservice.rollforLoot($scope.rolltype,$scope.diff,1).success(function (response) {
         //console.log("called")
         console.log(response)
         $scope.result = response
@@ -71,6 +67,7 @@ angular.module('myApp.controllers', [])
  
 
   })
+
 
 
 
