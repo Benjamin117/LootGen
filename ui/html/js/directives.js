@@ -3,10 +3,27 @@
 
 /* Directives */
 
-angular.module('myApp.directives', ['myApp.filters'])
+angular.module('myApp.directives', [])
 
-  .directive('myHead', function () {
-    return "nothing yet"
+  .directive('weaponRow', function () {
+
+    return {
+    	restrict: 'E',
+    	templateUrl: '/partials/weapon-row.html'
+    	
+    	
+    	
+  };
+  })
+  .directive('armourRow', function () {
+
+    return {
+    	restrict: 'E',
+    	templateUrl: '/partials/armour-row.html'
+    	
+    	
+    	
+  };
   })
 
  
