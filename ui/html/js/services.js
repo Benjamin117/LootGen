@@ -4,12 +4,12 @@
 
 angular.module('myApp.services', [])
 
-.factory('lootGenAPIservice', function($http) {
+.factory('lootGenAPIservice', function($http,$q) {
     
     var lootGenAPI = {};
     
     var url = 'http://'+window.location.hostname;
-    var port = ':33002';
+    var port = ':7000';
     var endpoint = null;
     console.log(url+port);
     lootGenAPI.rollforLoot = function(rolltpye,difficulty,item_count) {
@@ -52,6 +52,48 @@ switch(difficulty) {
         url: url+port+endpoint,
         params: {difficulty: difficulty,
             item_count:item_count}
+      })
+    }
+
+    lootGenAPI.downloadInventory = function() {
+
+    endpoint = '/downloadinventory'
+      return $http({
+        method: 'GET',
+        responseType: 'arraybuffer', 
+        url: url+port+endpoint
+        
+      })
+    }
+
+    lootGenAPI.clearInventory = function() {
+
+    endpoint = '/clearinventory'
+      return $http({
+        method: 'GET', 
+        url: url+port+endpoint
+        
+      })
+    }
+
+    lootGenAPI.getPersisitentInventory = function() {
+
+    endpoint = '/getinventory'
+      return $http({
+        method: 'GET', 
+        url: url+port+endpoint
+        
+      })
+    }
+
+    lootGenAPI.updateInventory = function(result) {
+
+    endpoint = '/updateinventory'
+      return $http({
+        method: 'GET', 
+        url: url+port+endpoint,
+        params: {item: result}
+        
       })
     }
 

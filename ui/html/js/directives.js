@@ -9,7 +9,8 @@ angular.module('myApp.directives', [])
 
     return {
     	restrict: 'E',
-    	templateUrl: '/partials/weapon-row.html'
+    	templateUrl: '/partials/weapon-row.html',
+      scope: {'result':'=result'}
     	
     	
     	
@@ -19,7 +20,9 @@ angular.module('myApp.directives', [])
 
     return {
     	restrict: 'E',
-    	templateUrl: '/partials/armour-row.html'
+    	templateUrl: '/partials/armour-row.html',
+      scope: {'result':'=result'}
+      
     	
     	
     	

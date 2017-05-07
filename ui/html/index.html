@@ -10,6 +10,7 @@
     <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/lib/angular/angular.min.js"></script>
     <script src="js/lib/angular/angular-route.min.js"></script>
+
     <script src="js/lib/d3.v3.js"></script>
    <!--<script src="js/lib/tether.min.js"></script>-->
     <!--<link rel="stylesheet" href="css/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css"> -->
@@ -17,6 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!--<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/services.js"></script>
@@ -25,11 +27,28 @@
 </head>
 
 <body ng-app="myApp" ng-controller="LootGenController">
+<script xmlns="http://www.w3.org/1999/xhtml" async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
 <div style="padding:30px">
 <h3 class="page-title">Dungeons and Dragons</h3>
 <div style="height: 50px"><div class="bd-example" data-example-id="">
 <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-<button type="button" class="btn btn-secondary" ng-click="roll()">Roll</button>
+<button type="button" class="btn btn-secondary" ng-click="roll()">Roll </button>
+<div style="float: left;padding-right: 10px;float:right" class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="inventorydropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Inventory
+  </button>
+  <div  class="dropdown-menu" aria-labelledby="inventorydropdownButton">
+    
+    
+    <a class="dropdown-item" ng-click="showPersistentInventory()" href="#">View all</a>
+    <a class="dropdown-item" ng-click="clearInventory()" href="#">Clear all</a>
+    <a class="dropdown-item" ng-click="showSessionInventory()" href="#">View this session</a>
+    <a class="dropdown-item" ng-click="rekCookie('inventory')" href="#">Clear this session</a>
+    <a class="dropdown-item" ng-click="downloadInventory()" href="#">Download  <i class="fa fa-download" aria-hidden="true"></i></a>
+
+  </div>
+  
+</div>
 
 <div style="float: left;padding-right: 10px" class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="difficultydropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,19 +68,34 @@
     {{rolltype}}
   </button>
   <div  class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" ng-click="rolltype='Weapon'" href="#">Weapon</a>
-    <a class="dropdown-item" ng-click="rolltype='Armour'" href="#">Armour</a>
+    <a class="dropdown-item" ng-click="rolltype='Weapon'" href="#">Weapon <img src="css/Sword.ico" style="width:14;height:14px; float:right;display:block"></a>
+    <a class="dropdown-item" ng-click="rolltype='Armour'" href="#">Armour <i  class="fa fa-shield" style="float:right;display:block;" aria-hidden="true"></i></a>
     <a class="dropdown-item" ng-click="rolltype='Any'" href="#">Any</a>
   </div>
 </div>
-<button ng-if="propclass=='Legendary'" type="button" class="btn btn-secondary" ng-click="decrypt()">Decrypt</button>
+<button ng-if="result.perkclass=='Legendary'" type="button" class="btn btn-secondary" ng-click="decrypt(result)">Decrypt</button>
+<button ng-if="result && notcollected" type="button" class="btn btn-secondary" ng-click="addItem()">Loot Item</button>
 
 </div></div>
 
-    <weapon-row ng-if="result.itemtype=='Weapon'" ></weapon-row>
-    <armour-row ng-if="result.itemtype=='Armour'" ></armour-row>
+    <weapon-row ng-if="result.itemtype=='Weapon'" result="result" ></weapon-row>
+    <armour-row ng-if="result.itemtype=='Armour'" result="result" ></armour-row>
     </div>
+    <div ng-show="showInventory" style="margin:30px;width:auto%;">
+    <h4>Inventory<button type="button" class="btn btn-secondary" style="float:right" ng-click="hideInventory()">Hide </button></h4>
+    </div>
+    <div ng-show="showInventory && inventory.length==0" class="alert alert-info" style="width:auto%;margin:30px;"">
+  <strong>Empty!</strong> Inventory is empty.
+</div>
+    <div ng-show="showInventory  && inventory.length!=0" style="width:auto;margin:30px;height:350px;overflow-y:auto;margin-top:15px;border: 1px solid #e0ded7 ">
    
+   
+   <div ng-show="showInventory" ng-repeat="item in inventory track by item.uid" style="width: 90%;margin: 15px" >
+   
+  <weapon-row ng-if="item.itemtype=='Weapon'" result="item"></weapon-row>
+    <armour-row ng-if="item.itemtype=='Armour'" result="item"></armour-row>
+</div>
+</div>
 </body>
 
 </html>

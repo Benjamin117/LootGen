@@ -1,34 +1,34 @@
     
     <div ng-if="result" class="tile">
     <div >
-        <span class="item-header"><h3 ng-class="perkclass" style="float: left;padding: 10px;"> {{result.drawname}} </h3><h4 ng-class="propclass" style="float: right;display: inline-block;color:gray;padding: 10px ">{{result['Weapon Family']}}</h4></span></div>
+        <span class="item-header"><h3 ng-class="result.perkclass" style="float: left;padding: 10px;"> {{result.drawname}} </h3><h4 ng-class="result.propclass" style="float: right;display: inline-block;color:gray;padding: 10px ">{{result['Weapon Family']}}</h4></span></div>
         <table class="table">
             <thead>
                 <tr>
-                    <th ng-class="propclass">Damage</th>
-                    <th ng-class="propclass">Weight</th>
-                    <th ng-class="propclass">Value</th>
+                    <th ng-class="result.propclass">Damage</th>
+                    <th ng-class="result.propclass">Weight</th>
+                    <th ng-class="result.propclass">Value</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-info">
-                    <td ng-class="propclass">{{result['Base Damage']}}</td>
-                    <td ng-class="propclass">{{result.Weight}}</td>
-                    <td ng-class="propclass">{{result.totalvalue}}</td>
+                    <td ng-class="result.propclass">{{result['Base Damage']}}</td>
+                    <td ng-class="result.propclass">{{result.Weight}}</td>
+                    <td ng-class="result.propclass">{{result.totalvalue}}</td>
                 </tr>
             </tbody>
         </table>
 
          <table><tr><td style="width:50%;vertical-align: top;
   text-align: left;">
-        <div  ng-class="propclass" style="padding: 10px; margin-right: 0px">
+        <div  ng-class="result.propclass" style="padding: 10px; margin-right: 0px">
         <p><h5 style="font-weight:bold;">Properties:</h5>{{result['Base Properties']}}</p>
             </div>
         </td><td style="vertical-align: top;
-  text-align: left;"><div ng-if="isperk"  ng-class="propclass" style="padding: 10px">
-        <p><h5 style="font-weight:bold;">Perks:</h5><div style="color:grey">{{pperkname}}</div>{{result.pperkeffect}}</p><p ><div ng-if="secperk" style="color:grey">{{sperkname}}</div>{{result.sperkeffect}}</p>
+  text-align: left;"><div ng-if="result.pperkrarity!=='none'"  ng-class="result.propclass" style="padding: 10px">
+        <p><h5 style="font-weight:bold;">Perks:</h5><div style="color:grey">{{pperkname}}</div>{{result.pperkeffect}}</p><p ><div ng-if="result.secondaryperk!=='none'" style="color:grey">{{sperkname}}</div>{{result.sperkeffect}}</p>
             </div></td></tr></table>
-            <div ng-if="specialprop" ng-class="propclass" style="padding: 10px">
+            <div ng-if="result['Special Properties'] =='none'" ng-class="result.propclass" style="padding: 10px">
         <p><h5 style="font-weight:bold;">Special Properties:</h5><div style="">{{result['Special Properties']}}</div></p>
             </div>
         
