@@ -1,9 +1,0 @@
-server {
-    listen 81;
-    server_name _;
-
-    location / {
-        include uwsgi_params;
-        uwsgi_pass unix:/home/LootGen/api/LootGen.sock;
-    }
-}
