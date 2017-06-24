@@ -318,5 +318,5 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(host= '0.0.0.0', port=80, debug=False)
+    app.run(host= '0.0.0.0', port=7000, debug=False)
     #roll_for_armour('hard',2)
