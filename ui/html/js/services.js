@@ -16,10 +16,10 @@ angular.module('myApp.services', [])
 
         var lootGenAPI = {};
 
-        var url = 'http://' + window.location.hostname;
-        var port = ':7000';
+        var url = 'https://' + window.location.hostname;
+        var uri = '/api';
         var endpoint = null;
-        console.log(url + port);
+        console.log(url + uri);
         lootGenAPI.rollforLoot = function(rolltpye, difficulty, item_count) {
 
             switch (rolltpye) {
@@ -59,7 +59,7 @@ angular.module('myApp.services', [])
 
             return $http({
                 method: 'GET',
-                url: url + port + endpoint,
+                url: url + uri + endpoint,
                 params: {
                     difficulty: difficulty,
                     item_count: item_count
@@ -73,7 +73,7 @@ angular.module('myApp.services', [])
             return $http({
                 method: 'GET',
                 responseType: 'arraybuffer',
-                url: url + port + endpoint + ext
+                url: url + uri + endpoint + ext
 
             })
         }
@@ -83,7 +83,7 @@ angular.module('myApp.services', [])
             endpoint = '/clearinventory'
             return $http({
                 method: 'GET',
-                url: url + port + endpoint
+                url: url + uri + endpoint
 
             })
         }
@@ -93,7 +93,7 @@ angular.module('myApp.services', [])
             endpoint = '/getinventory'
             return $http({
                 method: 'GET',
-                url: url + port + endpoint
+                url: url + uri + endpoint
 
             })
         }
@@ -103,7 +103,7 @@ angular.module('myApp.services', [])
             endpoint = '/updateinventory'
             return $http({
                 method: 'GET',
-                url: url + port + endpoint,
+                url: url + uri + endpoint,
                 params: {
                     item: result
                 }
