@@ -1,10 +1,8 @@
-FROM tiangolo/uwsgi-nginx-flask:flask-python3.5
-RUN rm main.py
-RUN rm uwsgi.ini
-COPY  main.py /app/main.py
-COPY  uwsgi.ini /app/uwsgi.ini
+FROM python:3
+RUN pip install gunicorn gevent flask flask-cors pandas xlsxwriter
 
-#clone repo
-#RUN git clone https://github.com/Benjamin117/LootGen.git /app && cd /home/LootGen && git checkout a672098 
+ADD app/config.py /etc/gunicorn/config.py
+ADD app /app 
 
-#EXPOSE 81
+EXPOSE 80
+CMD  ["gunicorn","--config=/etc/gunicorn/config.py","wsgi:app"]
