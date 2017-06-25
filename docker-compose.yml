@@ -1,0 +1,15 @@
+version: '2'
+services:
+  nginx:
+    build: ui
+    ports:
+     - "8080:80"
+     - "8181:443"
+    depends_on:
+      - gunicorn
+    
+  gunicorn:
+    build: api
+    ports:
+     - "7000:80"
+     
